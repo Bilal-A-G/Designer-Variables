@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Enum", menuName = "Enum Variables")]
+[CreateAssetMenu(fileName = "New Enum", menuName = "Variables/Enum Variable")]
 public class EnumVariable : GenericVariable<EnumVariable>
 {
     new public EnumVariable GetValue => this;

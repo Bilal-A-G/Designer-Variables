@@ -114,9 +114,3 @@ public class GenericRefrenceEnumDrawer : GenericReferenceDrawerWrapper<EnumVaria
 
     }
 }
-
-[CustomPropertyDrawer(typeof(GenericReference<GameObject>))]
-public class GenericRefrenceGODrawer : GenericReferenceDrawerWrapper<GameObject>
-{
-
-}

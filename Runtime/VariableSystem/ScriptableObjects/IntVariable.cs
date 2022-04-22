@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Int", menuName = "Int Variables")]
+[CreateAssetMenu(fileName = "New Int", menuName = "Variables/Int Variable")]
 public class IntVariable : GenericVariable<int>
 {
 
