@@ -1,6 +1,6 @@
 
 [System.Serializable]
-public class GenericRefrence<T>
+public class GenericReference<T>
 {
     public bool useOverride;
 

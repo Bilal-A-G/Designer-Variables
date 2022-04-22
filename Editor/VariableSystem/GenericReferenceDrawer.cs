@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-public class GenericRefrenceDrawerWrapper<T> : PropertyDrawer
+public class GenericReferenceDrawerWrapper<T> : PropertyDrawer
 {
     public bool isFolded;
 
@@ -16,7 +16,7 @@ public class GenericRefrenceDrawerWrapper<T> : PropertyDrawer
             isFolded = true;
             EditorGUI.indentLevel = 1;
 
-            var typeToInstantiate = typeof(GenericRefrence<T>);
+            var typeToInstantiate = typeof(GenericReference<T>);
             string fullTypeName = typeToInstantiate.GenericTypeArguments[0].ToString();
 
             string[] seperators = new string[] { "." };
@@ -57,32 +57,32 @@ public class GenericRefrenceDrawerWrapper<T> : PropertyDrawer
     public virtual string GetAlias(string[] fullName) { return fullName[fullName.Length - 1]; }
 }
 
-[CustomPropertyDrawer(typeof(GenericRefrence<int>))]
-public class GenericRefrenceIntDrawer : GenericRefrenceDrawerWrapper<int>
+[CustomPropertyDrawer(typeof(GenericReference<int>))]
+public class GenericRefrenceIntDrawer : GenericReferenceDrawerWrapper<int>
 {
     public override string GetAlias(string[] fullName) => "Int";
 }
 
-[CustomPropertyDrawer(typeof(GenericRefrence<float>))]
-public class GenericRefrenceFloatDrawer : GenericRefrenceDrawerWrapper<float>
+[CustomPropertyDrawer(typeof(GenericReference<float>))]
+public class GenericRefrenceFloatDrawer : GenericReferenceDrawerWrapper<float>
 {
     public override string GetAlias(string[] fullName) => "Float";
 }
 
-[CustomPropertyDrawer(typeof(GenericRefrence<string>))]
-public class GenericRefrenceStringDrawer : GenericRefrenceDrawerWrapper<string>
+[CustomPropertyDrawer(typeof(GenericReference<string>))]
+public class GenericRefrenceStringDrawer : GenericReferenceDrawerWrapper<string>
 {
 
 }
 
-[CustomPropertyDrawer(typeof(GenericRefrence<Object>))]
-public class GenericRefrenceObjDrawer : GenericRefrenceDrawerWrapper<Object>
+[CustomPropertyDrawer(typeof(GenericReference<Object>))]
+public class GenericRefrenceObjDrawer : GenericReferenceDrawerWrapper<Object>
 {
 
 }
 
-[CustomPropertyDrawer(typeof(GenericRefrence<EnumVariable>))]
-public class GenericRefrenceEnumDrawer : GenericRefrenceDrawerWrapper<EnumVariable>
+[CustomPropertyDrawer(typeof(GenericReference<EnumVariable>))]
+public class GenericRefrenceEnumDrawer : GenericReferenceDrawerWrapper<EnumVariable>
 {
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
@@ -115,8 +115,8 @@ public class GenericRefrenceEnumDrawer : GenericRefrenceDrawerWrapper<EnumVariab
     }
 }
 
-[CustomPropertyDrawer(typeof(GenericRefrence<GameObject>))]
-public class GenericRefrenceGODrawer : GenericRefrenceDrawerWrapper<GameObject>
+[CustomPropertyDrawer(typeof(GenericReference<GameObject>))]
+public class GenericRefrenceGODrawer : GenericReferenceDrawerWrapper<GameObject>
 {
 
 }
