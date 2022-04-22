@@ -1,2 +1,2 @@
 # designer-variables
-A simple, and designer friendly variable system
+A Variable system that is designer friendly and easy to use
