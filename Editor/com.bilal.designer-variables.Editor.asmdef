@@ -1,8 +1,8 @@
 {
-    "name": "com.bilal.designer-variables-editor",
+    "name": "com.bilal.designer-variables.Editor",
     "rootNamespace": "",
     "references": [
-        "GUID:cc080499af2619e4b9c8b14f4d2f0c1d"
+        "GUID:b793e23ed54b497e809dbcff8f41fc76"
     ],
     "includePlatforms": [
         "Editor"
