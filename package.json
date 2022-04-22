@@ -2,7 +2,7 @@
   "name": "com.bilal.designer-variables",
   "version": "1.0.0",
   "displayName": "Designer Variables",
-  "description": "A variable system is designer friendly and very easy to use",
+  "description": "A variable system that is designer friendly and very easy to use",
   "unity": "2019.1",
   "dependencies": 
   {
