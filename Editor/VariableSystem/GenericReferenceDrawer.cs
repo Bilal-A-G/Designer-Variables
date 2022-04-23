@@ -114,3 +114,9 @@ public class GenericRefrenceEnumDrawer : GenericReferenceDrawerWrapper<EnumVaria
 
     }
 }
+
+[CustomPropertyDrawer(typeof(GenericReference<bool>))]
+public class GenericRefrenceBoolDrawer: GenericReferenceDrawerWrapper<bool>
+{
+
+}
