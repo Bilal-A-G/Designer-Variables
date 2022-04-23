@@ -6,4 +6,6 @@ public class GenericVariable<T> : ScriptableObject
     T value;
 
     public T GetValue => value;
+
+    public void SetValue(T value) => this.value = value; 
 }
