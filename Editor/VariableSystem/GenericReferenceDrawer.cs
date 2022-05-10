@@ -3,17 +3,16 @@ using UnityEngine;
 
 public class GenericReferenceDrawerWrapper<T> : PropertyDrawer
 {
-    public bool isFolded;
-
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
         SerializedProperty useOverride = property.FindPropertyRelative("useOverride");
         SerializedProperty overrideValue = property.FindPropertyRelative("overrideValue");
         SerializedProperty variableValue = property.FindPropertyRelative("variableValue");
+        SerializedProperty isFolded = property.FindPropertyRelative("isFolded");
 
-        if (EditorGUI.Foldout(new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight), isFolded, label, true))
+        if (EditorGUI.Foldout(new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight), isFolded.boolValue, label, true))
         {
-            isFolded = true;
+            isFolded.boolValue = true;
             EditorGUI.indentLevel = 1;
 
             var typeToInstantiate = typeof(GenericReference<T>);
@@ -37,7 +36,7 @@ public class GenericReferenceDrawerWrapper<T> : PropertyDrawer
         }
         else
         {
-            isFolded = false;
+            isFolded.boolValue = false;
         }
 
         property.serializedObject.ApplyModifiedProperties();
@@ -45,7 +44,9 @@ public class GenericReferenceDrawerWrapper<T> : PropertyDrawer
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
-        if (isFolded)
+        SerializedProperty isFolded = property.FindPropertyRelative("isFolded");
+
+        if (isFolded.boolValue)
         {
             return base.GetPropertyHeight(property, label) + EditorGUIUtility.singleLineHeight * 2;
         }
@@ -87,17 +88,18 @@ public class GenericRefrenceEnumDrawer : GenericReferenceDrawerWrapper<EnumVaria
     public override void OnGUI(Rect position, SerializedProperty property, GUIContent label)
     {
         SerializedProperty overrideValue = property.FindPropertyRelative("overrideValue");
+        SerializedProperty isFolded = property.FindPropertyRelative("isFolded");
 
-        if (EditorGUI.Foldout(new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight), isFolded, label, true))
+        if (EditorGUI.Foldout(new Rect(position.x, position.y, position.width, EditorGUIUtility.singleLineHeight), isFolded.boolValue, label, true))
         {
-            isFolded = true;
+            isFolded.boolValue = true;
             EditorGUI.indentLevel = 1;
 
             EditorGUI.PropertyField(new Rect(position.x, position.y + EditorGUIUtility.singleLineHeight, position.width, EditorGUIUtility.singleLineHeight), overrideValue, new GUIContent("Override" + "<EnumVariable>"));
         }
         else
         {
-            isFolded = false;
+            isFolded.boolValue = false;
         }
 
         property.serializedObject.ApplyModifiedProperties();
@@ -105,7 +107,9 @@ public class GenericRefrenceEnumDrawer : GenericReferenceDrawerWrapper<EnumVaria
 
     public override float GetPropertyHeight(SerializedProperty property, GUIContent label)
     {
-        if (isFolded)
+        SerializedProperty isFolded = property.FindPropertyRelative("isFolded");
+
+        if (isFolded.boolValue)
         {
             return base.GetPropertyHeight(property, label) - EditorGUIUtility.singleLineHeight;
         }

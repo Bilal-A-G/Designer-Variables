@@ -6,6 +6,8 @@ public class GenericReference<T>
 {
     [SerializeField]
     bool useOverride;
+    [SerializeField]
+    bool isFolded;
 
     [SerializeField]
     GenericVariable<T> variableValue;
